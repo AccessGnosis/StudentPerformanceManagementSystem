@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>StudentPerformanceManagementSystem</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<filter>
+		<filter-name>EncodingFilter</filter-name>
+		<filter-class>cn.qingmukj.filter.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>EncodingValue</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>EncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>LoginedFilter</filter-name>
+		<filter-class>cn.qingmukj.filter.LoginedFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>LoginedFilter</filter-name>
+		<url-pattern>/stuinfomanage/logined/*</url-pattern>
+	</filter-mapping>
+
+	<!-- servlet有两个部分：一个是servlet，另一个是servlet-mapping servlet-name：是自己起的名字 servlet-class: 
+		标记的servlet所在的路径，注意包结构 url-pattern：通过浏览器确定的路径 -->
+	<servlet>
+		<servlet-name>UserLoginServlet</servlet-name>
+		<servlet-class>cn.qingmukj.servlet.UserLoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserLoginServlet</servlet-name>
+		<url-pattern>/stuinfomanage/UserLoginServlet</url-pattern>
+	</servlet-mapping>
+
+	<filter-mapping>
+		<filter-name>LoginedFilter</filter-name>
+		<url-pattern>/stuinfomanage/logined/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>ParameterSetting</servlet-name>
+		<servlet-class>cn.qingmukj.servlet.admin.ParameterSetting</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ParameterSetting</servlet-name>
+		<url-pattern>/stuinfomanage/logined/admin/ParameterSetting</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AdminUpdateStudent</servlet-name>
+		<servlet-class>cn.qingmukj.servlet.admin.AdminUpdateStudent</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminUpdateStudent</servlet-name>
+		<url-pattern>/stuinfomanage/logined/admin/AdminUpdateStudent</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>StuUpdateStudent</servlet-name>
+		<servlet-class>cn.qingmukj.servlet.stu.StuUpdateStudent</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StuUpdateStudent</servlet-name>
+		<url-pattern>/stuinfomanage/logined/stu/StuUpdateStudent</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>TechUpdateTeacher</servlet-name>
+		<servlet-class>cn.qingmukj.servlet.tech.TechUpdateTeacher</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TechUpdateTeacher</servlet-name>
+		<url-pattern>/stuinfomanage/logined/tech/TechUpdateTeacher</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AdminUpdateTeacher</servlet-name>
+		<servlet-class>cn.qingmukj.servlet.admin.AdminUpdateTeacher</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminUpdateTeacher</servlet-name>
+		<url-pattern>/stuinfomanage/logined/admin/AdminUpdateTeacher</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AdminUpdateClass</servlet-name>
+		<servlet-class>cn.qingmukj.servlet.admin.AdminUpdateClass</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminUpdateClass</servlet-name>
+		<url-pattern>/stuinfomanage/logined/admin/AdminUpdateClass</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>InsertStudentServlet</servlet-name>
+		<servlet-class>cn.qingmukj.servlet.admin.InsertStudentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InsertStudentServlet</servlet-name>
+		<url-pattern>/stuinfomanage/logined/admin/InsertStudentServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>InsertTeacherServlet</servlet-name>
+		<servlet-class>cn.qingmukj.servlet.admin.InsertTeacherServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InsertTeacherServlet</servlet-name>
+		<url-pattern>/stuinfomanage/logined/admin/InsertTeacherServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>cn.qingmukj.servlet.admin.Logout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/stuinfomanage/logined/admin/Logout</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UserEditor</servlet-name>
+		<servlet-class>cn.qingmukj.servlet.admin.UserEditor</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserEditor</servlet-name>
+		<url-pattern>/stuinfomanage/logined/admin/UserEditor</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AdminInsertClass</servlet-name>
+		<servlet-class>cn.qingmukj.servlet.admin.AdminInsertClass</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminInsertClass</servlet-name>
+		<url-pattern>/stuinfomanage/logined/admin/AdminInsertClass</url-pattern>
+	</servlet-mapping>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/StudentPerformanceManagementSystem/failed500.jsp</location>
+	</error-page>
+</web-app>
